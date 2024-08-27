@@ -13,4 +13,8 @@ namespace CleanArchitecture.Domain.Entities
         public DateTimeOffset? DateUpdated { get; set; }
         public DateTimeOffset? DateDeleted { get; set; }
     }
+
+    public class User
+    {
+    }
 }
