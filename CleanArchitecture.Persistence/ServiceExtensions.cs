@@ -1,5 +1,7 @@
 ﻿using CleanArchitecture.Domain.Interfaces;
+using CleanArchitecture.Persistence.Context;
 using CleanArchitecture.Persistence.Repositories;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -9,10 +11,12 @@ namespace CleanArchitecture.Persistence
     public static class ServiceExtensions
     {
         // Método de extensão para configurar serviços relacionados à persistência
-        public static void ConfigurePersistenceApp(this IServiceCollection services, IConfiguration configuration)
+        public static void ConfigurePersistenceApp(this IServiceCollection services,
+                                                        IConfiguration configuration)
         {
             // Obtém a string de conexão para o banco de dados SQLite a partir das configurações da aplicação
             var connectionString = configuration.GetConnectionString("Sqlite");
+            services.AddDbContext<AppDbContext>(opt => opt.UseSqlite(connectionString));
 
             // Registra o serviço IUnitOfWork e sua implementação UnitOfWork como Scoped (vida útil por requisição)
             services.AddScoped<IUnitOfWork, UnitOfWork>();
