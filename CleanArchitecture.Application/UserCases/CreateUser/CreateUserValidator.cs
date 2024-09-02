@@ -1,19 +1,12 @@
-﻿using CleanArchitecture.Application.UserCases.CreatUser;
-using FluentValidation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using FluentValidation;
 
-namespace CleanArchitecture.Application.UserCases.CreateUser;
+namespace CleanArchitecture.Application.UseCases.CreateUser;
 
 public sealed class CreateUserValidator : AbstractValidator<CreateUserRequest>
 {
-    //Regras para inserir email e nome
-    public CreateUserValidator() 
+    public CreateUserValidator()
     {
-        RuleFor(X => X.Email).NotEmpty().MaximumLength(50).EmailAddress();
-        RuleFor(X => X.Name).NotEmpty().MinimumLength(3).MaximumLength(50);
+        RuleFor(x => x.Email).NotEmpty().MaximumLength(50).EmailAddress();
+        RuleFor(x => x.Name).NotEmpty().MinimumLength(3).MaximumLength(50);
     }
 }

@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using CleanArchitecture.Application.UserCases.CreatUser;
 using CleanArchitecture.Domain.Entities;
 using CleanArchitecture.Domain.Interfaces;
 using MediatR;
@@ -14,7 +13,8 @@ public class CreateUserHandler :
     private readonly IMapper _mapper;
 
     public CreateUserHandler(IUnitOfWork unitOfWork,
-        IUserRepository userRepository, IMapper mapper)
+        IUserRepository userRepository,
+        IMapper mapper)
     {
         _unitOfWork = unitOfWork;
         _userRepository = userRepository;
@@ -24,6 +24,7 @@ public class CreateUserHandler :
     public async Task<CreateUserResponse> Handle(CreateUserRequest request,
         CancellationToken cancellationToken)
     {
+
         var user = _mapper.Map<User>(request);
 
         _userRepository.Create(user);
