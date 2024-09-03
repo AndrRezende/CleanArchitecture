@@ -1,12 +1,14 @@
 using CleanArchitecture.Persistence.Context;
 using CleanArchitecture.Persistence;
 using CleanArchitecture.Application.Services;
+using CleanArchitecture.API.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
 
 builder.Services.ConfigurePersistenceApp(builder.Configuration);
 builder.Services.ConfigureApplicationApp();
+builder.Services.ConfigureCorsPolicy();
 
 
 builder.Services.AddControllers();
@@ -16,9 +18,9 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
+
 CreateDatabase(app);
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -26,11 +28,10 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
 
+app.UseCors();          //se atentar para os requisitos do cors
 app.MapControllers();
-
 app.Run();
 
 static void CreateDatabase(WebApplication app)
