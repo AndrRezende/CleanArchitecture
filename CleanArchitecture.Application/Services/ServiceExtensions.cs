@@ -1,4 +1,4 @@
-﻿//using CleanArchitecture.Application.Shared.Behavior;
+﻿using CleanArchitecture.Application.Shared.Behavior;
 using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
@@ -17,7 +17,7 @@ public static class ServiceExtensions
 
         services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
 
-        //services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
+        services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
 
     }
 }
