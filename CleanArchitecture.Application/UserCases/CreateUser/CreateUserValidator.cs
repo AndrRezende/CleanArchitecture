@@ -6,6 +6,7 @@ public sealed class CreateUserValidator : AbstractValidator<CreateUserRequest>
 {
 
     //Definição de validação para entrada de dados
+    //validacao
     public CreateUserValidator()
     {
         RuleFor(x => x.Email).NotEmpty().MaximumLength(50).EmailAddress();
