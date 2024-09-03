@@ -1,6 +1,7 @@
-﻿using MediatR;
+﻿using CleanArchitecture.Application.UseCases.GetAllUser;
+using MediatR;
 
-namespace CleanArchitecture.Application.UserCases.GetAllUser;
+namespace CleanArchitecture.Application.UseCases.GetAllUser;
 
 public sealed record GetAllUserRequest :
-                     IRequest<List<GetAllUserResponse>>;
+                   IRequest<List<GetAllUserResponse>>;

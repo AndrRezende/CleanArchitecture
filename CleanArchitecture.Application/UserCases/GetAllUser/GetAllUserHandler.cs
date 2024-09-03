@@ -5,7 +5,7 @@ using MediatR;
 
 namespace CleanArchitecture.Application.UseCases.GetAllUser;
 
-public sealed class GetAllUserHandler : IRequestHandler<GetAllUserRequest, List<GetAllUserResponse>> 
+public sealed class GetAllUserHandler : IRequestHandler<GetAllUserRequest, List<GetAllUserResponse>>
 {
     private readonly IUserRepository _userRepository;
     private readonly IMapper _mapper;
