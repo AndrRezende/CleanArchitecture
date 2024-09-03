@@ -1,11 +1,11 @@
 ﻿using AutoMapper;
 using CleanArchitecture.Domain.Entities;
 
-namespace CleanArchitecture.Application.UseCases.GetAllUser;
+namespace CleanArchitecture.Application.UserCases.GetAllUser;
 
 public sealed class GetAllUserMapper : Profile
 {
-    public GetAllUserMapper()
+    public GetAllUserMapper() 
     {
         CreateMap<User, GetAllUserResponse>();
     }

@@ -1,11 +1,12 @@
 ﻿using FluentValidation;
 
-namespace CleanArchitecture.Application.UseCases.GetAllUser;
-
-public class GetAllUserValidator : AbstractValidator<GetAllUserRequest>
+namespace CleanArchitecture.Application.UserCases.GetAllUser
 {
-    public GetAllUserValidator()
+    public class GetAllUserValidator : AbstractValidator<GetAllUserRequest>
     {
-        //sem validação    
+        public GetAllUserValidator() 
+        {
+            //sem validação
+        }
     }
 }
