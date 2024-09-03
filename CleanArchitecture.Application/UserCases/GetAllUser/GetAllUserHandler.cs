@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using CleanArchitecture.Application.UserCases.GetAllUser;
+using CleanArchitecture.Application.UseCases.GetAllUser;
 using CleanArchitecture.Domain.Interfaces;
 using MediatR;
 
